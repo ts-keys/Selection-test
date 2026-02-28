@@ -1,6 +1,7 @@
 import express from 'express';
 const app = express();
 app.use(express.json());
+const PORT = process.env.PORT || 3000;
 
 app.post('/api/converter', async (req, res) => {
     const value = req.body.data;
@@ -8,6 +9,6 @@ app.post('/api/converter', async (req, res) => {
     characters.sort();
     res.json({word: characters});
 })
-app.listen(3000, () => {
-    console.log('server running')
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`)
 });
